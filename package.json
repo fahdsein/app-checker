@@ -1,0 +1,15 @@
+{
+  "name": "neoapp-app-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small extensible service checker for NEO App private dependencies",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

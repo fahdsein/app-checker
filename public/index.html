@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101510">
+    <title>NEO Service Checker</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="eyebrow"><span class="live-dot"></span> NEO App diagnostic</div>
+        <h1>Service checks,<br><span>without the guesswork.</span></h1>
+        <p>Verify private dependencies from inside the same NEO App network. Redis is ready now; more checkers can be added to this workspace later.</p>
+      </header>
+
+      <section aria-labelledby="checks-title" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="label">Available checks</p>
+            <h2 id="checks-title">Connection console</h2>
+          </div>
+          <button class="quiet-button" id="refresh-button" type="button">Refresh configuration</button>
+        </div>
+
+        <article class="check-card" id="redis-card">
+          <div class="check-topline">
+            <div class="service-icon" aria-hidden="true">R</div>
+            <div class="service-copy">
+              <div class="title-line">
+                <h3>Redis</h3>
+                <span class="status neutral" id="redis-status">Loading</span>
+              </div>
+              <p>Runs PING, writes a temporary key, reads it back, and deletes it.</p>
+            </div>
+          </div>
+
+          <dl class="facts">
+            <div><dt>Target</dt><dd id="redis-target">—</dd></div>
+            <div><dt>Transport</dt><dd id="redis-transport">—</dd></div>
+            <div><dt>Last latency</dt><dd id="redis-latency">Not run</dd></div>
+          </dl>
+
+          <div class="result-panel" id="redis-result" hidden aria-live="polite"></div>
+
+          <div class="card-actions">
+            <p>Test data expires automatically after 30 seconds and is deleted immediately after verification.</p>
+            <button class="primary-button" id="redis-run" type="button" disabled>Run Redis check</button>
+          </div>
+        </article>
+
+        <article class="future-card">
+          <div>
+            <p class="label">Extensible by design</p>
+            <h3>Add the next service check</h3>
+            <p>Register another server-side checker and expose only its safe result to this page.</p>
+          </div>
+          <div class="plus" aria-hidden="true">+</div>
+        </article>
+      </section>
+
+      <footer>
+        <span>App Checker</span>
+        <span>Credentials stay server-side</span>
+      </footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
